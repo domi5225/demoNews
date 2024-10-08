@@ -27,7 +27,7 @@ public class Post implements Serializable{
     public Post() {
     }
 
-    public Post(int postID, String ptitle, String pimage, String pcontent, String ptime, int pclicks, int plikes, String editorName, String categoryName) {
+    public Post(int postID, String ptitle, String pimage, String pcontent, String ptime, int plikes, int pclicks, String editorName, String categoryName) {
         this.postID = postID;
         this.ptitle = ptitle;
         this.pimage = pimage;

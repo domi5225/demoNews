@@ -174,6 +174,54 @@ public class DAO {
         return null;
     }
     
+    public void like(int userID, String postID){
+        String check = "select * from favorites\n"
+                + "where userID = ?\n"
+                + "and postID = ?;";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(check);
+            ps.setInt(1, userID);
+            ps.setString(2,postID);
+            rs = ps.executeQuery();
+            if(!rs.next()){
+                String query1 = "insert into favorites\n"
+                        + "values (?,?);";
+                String query2 = "update posts\n"
+                        + "set plikes = plikes + 1\n"
+                        + "where postID = ?;";
+                
+                // cap nhat bang favorites
+                ps = conn.prepareStatement(query1);
+                ps.setInt(1, userID);
+                ps.setString(2, postID);
+                ps.executeUpdate();
+
+                // cap nhat bang post
+                ps = conn.prepareStatement(query2);
+               
+                ps.setString(1, postID);
+                ps.executeUpdate();
+                
+            }
+            close();
+        }catch (Exception e) {
+        }
+    }
+    public void click(String postID){
+        String query = "update posts\n" +
+                "set pclicks = pclicks + 1\n" +
+                "where postID = ? ;";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, postID);
+            ps.executeUpdate();
+            close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
     public User login(String acc, String pass){
         String query = "select * from users \n"
@@ -241,14 +289,15 @@ public class DAO {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<Post> list = dao.getAllPosts();
-        for(Post o:list){
-            System.out.println(o);
-        }
+//        List<Post> list = dao.getAllPosts();
+//        for(Post o:list){
+//            System.out.println(o);
+//        }
 //        List<Post> list = dao.getPostsByCategory("2");
 //        for(Post o:list){
 //            System.out.println(o);
 //        }
 //        System.out.println(dao.getPostByID("1"));
+          dao.click("1");
     }
 }

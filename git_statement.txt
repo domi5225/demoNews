@@ -1,0 +1,13 @@
+1. to create a new repo on CMD
+echo "# demoNews" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/domi5225/demoNews.git
+git push -u origin main
+
+2. push an existing repo from CMD:
+git remote add origin https://github.com/domi5225/demoNews.git
+git branch -M main
+git push -u origin main

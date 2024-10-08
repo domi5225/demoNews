@@ -1,3 +1,4 @@
+control\LikeControl.class
 context\DBContext.class
 control\CreatePostControl.class
 util\URLSlug.class

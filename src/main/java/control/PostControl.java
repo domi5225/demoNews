@@ -16,13 +16,13 @@ public class PostControl extends HttpServlet{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("post servlet");
+        
         String slug = request.getPathInfo();
-        System.out.println(request.getContextPath());
-        System.out.println(request.getServletPath());
+        
         if(slug != null && slug.length()>1){
             String id = slug.substring(slug.lastIndexOf("-")+1);
             DAO dao = new DAO();
+            dao.click(id);
             Post post = dao.getPostByID(id);
             if(post != null){
                 request.setAttribute("p", post);

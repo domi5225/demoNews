@@ -42,9 +42,9 @@
             
             <pre>${p.pcontent}</pre>
             <p> Neu ban thay hay, hay like</p>
+            <a href="${pageContext.request.contextPath}/like?pid=${p.postID}">&#128077; ${p.plikes}</a>
 
-
-            <p>Luot like: ${p.plikes}</p>
+            
         
         <!--<pre></pre>-->
         

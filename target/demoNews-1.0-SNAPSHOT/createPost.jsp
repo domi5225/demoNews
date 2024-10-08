@@ -11,9 +11,6 @@
         <h1>Tạo bài báo mới</h1>
         <form action="tao-bai" method="post">
             <label for="category">Thể loại</label>
-            <c:if test="${categories == null}">
-                    <h1>title</h1>
-            </c:if>
             <select id="category" name="category">
                 
                 <c:forEach var="o" items="${categories}">
@@ -24,11 +21,11 @@
             <br><br>
      
         <label>Tiêu đề</label>
-        <textarea name="title" rows ="2" cols="80"></textarea>
+        <textarea name="title" rows ="2" cols="80"></textarea><br>
         <label>Hình ảnh</label>
-        <input type="text" name ="image">
+        <input type="text" name ="image"><br>
         <label>Nội dung</label>
-        <textarea name="content" rows ="100" cols="80"></textarea>
+        <textarea name="content" rows ="50" cols="80"></textarea><br>
         <input type="hidden" name="action" value="create">
         <input type="submit" value="Tạo bài viết">
         </form>
