@@ -41,7 +41,7 @@
             <!-- đây là phần nội dung bài viết -->
             
             <pre>${p.pcontent}</pre>
-            
+            <p> Neu ban thay hay, hay like</p>
 
 
             <p>Luot like: ${p.plikes}</p>
